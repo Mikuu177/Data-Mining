@@ -6,41 +6,60 @@ This document outlines the detailed methodology and system architecture for the 
 
 The system architecture for this project is designed to process student counseling dialogues through multiple stages of analysis, from data collection to deployment of actionable insights. The architecture follows a modular approach to ensure flexibility and scalability.
 
-![System Architecture](system_architecture.html)
+### Visualization
 
-The system consists of several key components:
+The system architecture diagram visually represents the five key layers of our analysis pipeline:
+
+1. **Data Layer**: Sources and collection processes
+2. **Processing Layer**: Text preprocessing and feature engineering
+3. **Model Layer**: From baseline lexicon methods to advanced deep learning
+4. **Output Layer**: Analytics dashboards and alert systems
+5. **Deployment Layer**: Integration with counseling workflows
+
+View the interactive system architecture diagram: [System Architecture](system_architecture.html)
+
+### Components
 
 1. **Data Sources and Collection Layer**
    - Counseling Transcripts
    - Student Diaries
    - Forum Posts
-   - Anonymization and Aggregation processes
+   - Online Interactions
+   - GDPR-Compliant Anonymization
+   - Secure Aggregation of 5,000+ Dialogues
 
 2. **Text Processing Layer**
-   - Text Preprocessing (cleaning, normalization, tokenization)
-   - Feature Engineering (TF-IDF vectors, sentiment scores, statistical features)
+   - Advanced Text Preprocessing (noise removal, tokenization, lemmatization, POS tagging)
+   - Comprehensive Feature Engineering (TF-IDF vectors, sentiment scores, linguistic markers)
 
 3. **Model Layer**
-   - Baseline Models (lexicon-based methods like VADER and TextBlob)
-   - Machine Learning Models (Logistic Regression, Random Forest, XGBoost, SVM)
-   - Advanced Models (BERT, RoBERTa, and model ensembles)
+   - Lexicon-based Baselines (VADER, TextBlob, LIWC Dictionary)
+   - Statistical Machine Learning Models (Logistic Regression, Random Forest, XGBoost, SVM)
+   - Advanced Neural Approaches (BERT, RoBERTa, Ensemble Methods)
 
 4. **Output and Analysis Layer**
-   - Analysis Dashboard for sentiment trends and topic distribution
-   - Alert System for high-risk detection and counselor notifications
+   - Interactive Sentiment Analysis Dashboard
+   - Temporal Trend Visualization
+   - High-Risk Detection System
+   - Counselor Notification Framework
 
 5. **Deployment and Integration Layer**
-   - Web Application
-   - Counseling Center Integration
-   - Feedback Loop for continuous model improvement
+   - Secure Web Application
+   - Privacy-preserving API & Service Interfaces
+   - Continuous Feedback Loop
+   - Model Improvement Pipeline
 
 ## Methodology Flowchart
 
-The project follows the CRISP-DM (Cross-Industry Standard Process for Data Mining) methodology, which provides a structured approach to planning and implementing data mining projects.
+The project follows the CRISP-DM (Cross-Industry Standard Process for Data Mining) methodology, which provides a structured approach to planning and implementing data mining projects. Our implementation spans six months with clearly defined phases and milestones.
 
-![Methodology Flowchart](methodology_flowchart.html)
+### Visualization
 
-The methodology consists of seven phases:
+The interactive methodology flowchart visualizes the seven phases of our CRISP-DM approach, including timeline, milestones, and specific activities for each phase:
+
+View the interactive methodology flowchart: [Methodology Flowchart](methodology_flowchart.html)
+
+### Phases and Activities
 
 1. **Business Understanding (2 weeks)**
    - Define success criteria (≥80% sentiment classification accuracy)
@@ -87,7 +106,7 @@ The methodology consists of seven phases:
 
 ## Project Milestones
 
-The project is structured around four key milestones:
+The project is structured around four key milestones, as visualized in the methodology flowchart:
 
 1. **M1 (End of Month 1)**: Completion of business understanding
    - Stakeholders' requirements gathered
