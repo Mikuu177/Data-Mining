@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis Methodology Flowchart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            width: 900px;
+            margin: 0 auto;
+        }
+        .title {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        .flowchart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .phase {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            position: relative;
+            width: 100%;
+        }
+        .phase-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #3498db;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 20px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        .phase-content {
+            flex-grow: 1;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 15px;
+            background-color: #eaf2f8;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .phase-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #2980b9;
+        }
+        .phase-duration {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .phase-activities {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .activity {
+            background-color: white;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            padding: 8px 12px;
+            margin: 5px;
+            font-size: 13px;
+            flex-grow: 1;
+            min-width: 200px;
+        }
+        .arrow {
+            position: absolute;
+            left: 25px;
+            bottom: -30px;
+            height: 30px;
+            width: 3px;
+            background-color: #3498db;
+        }
+        .arrow::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: -4px;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 8px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Student Mental Health Sentiment Analysis Methodology Flowchart (CRISP-DM)</div>
+        
+        <div class="flowchart">
+            <!-- Phase 1: Business Understanding -->
+            <div class="phase">
+                <div class="phase-number">1</div>
+                <div class="phase-content">
+                    <div class="phase-title">Business Understanding</div>
+                    <div class="phase-duration">Duration: 2 weeks</div>
+                    <div class="phase-activities">
+                        <div class="activity">Define success criteria (≥80% accuracy)</div>
+                        <div class="activity">Identify stakeholder requirements</div>
+                        <div class="activity">Address privacy & security constraints</div>
+                        <div class="activity">Set performance metrics for high-risk detection</div>
+                    </div>
+                </div>
+                <div class="arrow"></div>
+            </div>
+            
+            <!-- Phase 2: Data Understanding -->
+            <div class="phase">
+                <div class="phase-number">2</div>
+                <div class="phase-content">
+                    <div class="phase-title">Data Understanding</div>
+                    <div class="phase-duration">Duration: 3 weeks</div>
+                    <div class="phase-activities">
+                        <div class="activity">Collect 5,000+ anonymized dialogues</div>
+                        <div class="activity">Conduct exploratory sentiment analysis</div>
+                        <div class="activity">Identify common themes (academic stress, etc.)</div>
+                        <div class="activity">Assess data quality & representativeness</div>
+                    </div>
+                </div>
+                <div class="arrow"></div>
+            </div>
+            
+            <!-- Phase 3: Data Preparation -->
+            <div class="phase">
+                <div class="phase-number">3</div>
+                <div class="phase-content">
+                    <div class="phase-title">Data Preparation</div>
+                    <div class="phase-duration">Duration: 4 weeks</div>
+                    <div class="phase-activities">
+                        <div class="activity">Text cleaning (lowercasing, stopword removal)</div>
+                        <div class="activity">Feature engineering (TF-IDF, sentiment scores)</div>
+                        <div class="activity">Statistical feature extraction (lexical diversity)</div>
+                        <div class="activity">Class balancing (SMOTE for minority class)</div>
+                    </div>
+                </div>
+                <div class="arrow"></div>
+            </div>
+            
+            <!-- Phase 4: Modeling -->
+            <div class="phase">
+                <div class="phase-number">4</div>
+                <div class="phase-content">
+                    <div class="phase-title">Modeling</div>
+                    <div class="phase-duration">Duration: 6 weeks</div>
+                    <div class="phase-activities">
+                        <div class="activity">Baseline models (Lexicon-based: VADER, TextBlob)</div>
+                        <div class="activity">Machine learning models (LR, SVM, RF, XGBoost)</div>
+                        <div class="activity">Deep learning models (fine-tuned BERT/RoBERTa)</div>
+                        <div class="activity">Ensemble methods for robust predictions</div>
+                        <div class="activity">Feature selection to prioritize key predictors</div>
+                    </div>
+                </div>
+                <div class="arrow"></div>
+            </div>
+            
+            <!-- Phase 5: Evaluation -->
+            <div class="phase">
+                <div class="phase-number">5</div>
+                <div class="phase-content">
+                    <div class="phase-title">Evaluation</div>
+                    <div class="phase-duration">Duration: 3 weeks</div>
+                    <div class="phase-activities">
+                        <div class="activity">Performance metrics (F1-score, focus on negative-class recall)</div>
+                        <div class="activity">Cross-validation to assess generalizability</div>
+                        <div class="activity">Expert review of misclassifications</div>
+                        <div class="activity">Model comparison and selection</div>
+                    </div>
+                </div>
+                <div class="arrow"></div>
+            </div>
+            
+            <!-- Phase 6: Deployment -->
+            <div class="phase">
+                <div class="phase-number">6</div>
+                <div class="phase-content">
+                    <div class="phase-title">Deployment</div>
+                    <div class="phase-duration">Duration: 4 weeks</div>
+                    <div class="phase-activities">
+                        <div class="activity">Web app prototype for real-time analysis</div>
+                        <div class="activity">Interactive dashboard for sentiment visualization</div>
+                        <div class="activity">Alert system for high-risk cases</div>
+                        <div class="activity">Integration into counseling workflow</div>
+                    </div>
+                </div>
+                <div class="arrow"></div>
+            </div>
+            
+            <!-- Phase 7: Reporting -->
+            <div class="phase">
+                <div class="phase-number">7</div>
+                <div class="phase-content">
+                    <div class="phase-title">Reporting and Dissemination</div>
+                    <div class="phase-duration">Duration: 2 weeks</div>
+                    <div class="phase-activities">
+                        <div class="activity">Technical report with methodology & findings</div>
+                        <div class="activity">Academic manuscript preparation</div>
+                        <div class="activity">Stakeholder workshop & knowledge transfer</div>
+                        <div class="activity">Future research recommendations</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

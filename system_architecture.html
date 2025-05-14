@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis System Architecture</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            width: 900px;
+            margin: 0 auto;
+        }
+        .title {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        .architecture {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .layer {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .module {
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 0 10px;
+            background-color: #eaf2f8;
+            text-align: center;
+            width: 180px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .data-module {
+            border-color: #e74c3c;
+            background-color: #fadbd8;
+        }
+        .processing-module {
+            border-color: #2ecc71;
+            background-color: #e9f7ef;
+        }
+        .model-module {
+            border-color: #9b59b6;
+            background-color: #f4ecf7;
+        }
+        .output-module {
+            border-color: #f39c12;
+            background-color: #fef5e7;
+        }
+        .arrow {
+            position: absolute;
+            width: 3px;
+            background-color: #95a5a6;
+            z-index: -1;
+        }
+        .arrow-down {
+            height: 30px;
+            bottom: -30px;
+        }
+        .arrow-label {
+            position: absolute;
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+        .module-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .module-desc {
+            font-size: 12px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Student Mental Health Sentiment Analysis System Architecture</div>
+        
+        <div class="architecture">
+            <!-- Data Layer -->
+            <div class="layer">
+                <div class="module data-module">
+                    <div class="module-title">Data Sources</div>
+                    <div class="module-desc">Counseling Transcripts<br>Student Diaries<br>Forum Posts</div>
+                </div>
+                <div class="module data-module">
+                    <div class="module-title">Data Collection</div>
+                    <div class="module-desc">Anonymization<br>Aggregation<br>5,000+ Dialogues</div>
+                </div>
+            </div>
+            
+            <!-- Processing Layer -->
+            <div class="layer">
+                <div class="arrow arrow-down" style="left: 25%;"></div>
+                <div class="arrow arrow-down" style="left: 75%;"></div>
+                <div class="module processing-module">
+                    <div class="module-title">Text Preprocessing</div>
+                    <div class="module-desc">Cleaning<br>Normalization<br>Tokenization</div>
+                </div>
+                <div class="module processing-module">
+                    <div class="module-title">Feature Engineering</div>
+                    <div class="module-desc">TF-IDF Vectors<br>Sentiment Scores<br>Statistical Features</div>
+                </div>
+            </div>
+            
+            <!-- Model Layer -->
+            <div class="layer">
+                <div class="arrow arrow-down" style="left: 25%;"></div>
+                <div class="arrow arrow-down" style="left: 75%;"></div>
+                <div class="module model-module">
+                    <div class="module-title">Baseline Models</div>
+                    <div class="module-desc">Lexicon-based<br>VADER<br>TextBlob</div>
+                </div>
+                <div class="module model-module">
+                    <div class="module-title">ML Models</div>
+                    <div class="module-desc">Logistic Regression<br>Random Forest<br>XGBoost<br>SVM</div>
+                </div>
+                <div class="module model-module">
+                    <div class="module-title">Advanced Models</div>
+                    <div class="module-desc">BERT<br>RoBERTa<br>Model Ensembles</div>
+                </div>
+            </div>
+            
+            <!-- Output Layer -->
+            <div class="layer">
+                <div class="arrow arrow-down" style="left: 25%;"></div>
+                <div class="arrow arrow-down" style="left: 50%;"></div>
+                <div class="arrow arrow-down" style="left: 75%;"></div>
+                <div class="module output-module">
+                    <div class="module-title">Analysis Dashboard</div>
+                    <div class="module-desc">Sentiment Trends<br>Key Phrases<br>Topic Distribution</div>
+                </div>
+                <div class="module output-module">
+                    <div class="module-title">Alert System</div>
+                    <div class="module-desc">High-Risk Detection<br>Counselor Notifications<br>Prioritization</div>
+                </div>
+            </div>
+            
+            <!-- Deployment Layer -->
+            <div class="layer">
+                <div class="arrow arrow-down" style="left: 35%;"></div>
+                <div class="arrow arrow-down" style="left: 65%;"></div>
+                <div class="module" style="width: 350px; border-color: #34495e; background-color: #ebedef;">
+                    <div class="module-title">Deployment & Integration</div>
+                    <div class="module-desc">Web Application<br>Counseling Center Integration<br>Feedback Loop<br>Continuous Model Improvement</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
