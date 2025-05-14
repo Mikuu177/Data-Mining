@@ -6,34 +6,77 @@
     <title>Sentiment Analysis Methodology Flowchart</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #333;
         }
         .container {
-            width: 900px;
+            width: 1100px;
             margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+            padding: 30px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 20px;
         }
         .title {
+            font-size: 28px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 16px;
+            color: #7b8a8b;
+            margin-bottom: 5px;
+        }
+        .methodology-desc {
             text-align: center;
-            font-size: 24px;
-            margin-bottom: 30px;
-            font-weight: bold;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-size: 14px;
+            color: #7b8a8b;
+            line-height: 1.6;
         }
         .flowchart {
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding: 20px 0;
+            position: relative;
+        }
+        .phases-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            position: relative;
         }
         .phase {
             display: flex;
-            align-items: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             position: relative;
-            width: 100%;
+            z-index: 1;
+        }
+        .phase:last-child {
+            margin-bottom: 20px;
+        }
+        .phase-number-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 25px;
+            flex-shrink: 0;
         }
         .phase-number {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             background-color: #3498db;
             color: white;
@@ -41,181 +84,513 @@
             justify-content: center;
             align-items: center;
             font-weight: bold;
-            font-size: 20px;
-            margin-right: 20px;
-            flex-shrink: 0;
+            font-size: 24px;
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+        .phase-connector {
+            width: 4px;
+            flex-grow: 1;
+            background-color: #3498db;
+            margin: 5px 0;
         }
         .phase-content {
             flex-grow: 1;
-            border: 2px solid #3498db;
+            border: 1px solid #e1e8ed;
+            border-left: 5px solid #3498db;
             border-radius: 8px;
-            padding: 15px;
-            background-color: #eaf2f8;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px 25px;
+            background-color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .phase-content:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        }
+        .phase-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #f2f2f2;
+            padding-bottom: 10px;
         }
         .phase-title {
-            font-weight: bold;
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: #2980b9;
+            font-weight: 600;
+            font-size: 20px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+        }
+        .phase-icon {
+            margin-right: 10px;
+            color: #3498db;
+            font-size: 22px;
         }
         .phase-duration {
             font-style: italic;
-            color: #7f8c8d;
+            color: #7b8a8b;
             font-size: 14px;
-            margin-bottom: 10px;
+            background-color: #f8f9fa;
+            padding: 5px 12px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .duration-icon {
+            margin-right: 5px;
+            color: #7b8a8b;
         }
         .phase-activities {
             display: flex;
             flex-wrap: wrap;
+            gap: 12px;
         }
         .activity {
-            background-color: white;
-            border: 1px solid #bdc3c7;
-            border-radius: 5px;
-            padding: 8px 12px;
-            margin: 5px;
+            background-color: #f8f9fa;
+            border: 1px solid #e1e8ed;
+            border-left: 3px solid #3498db;
+            border-radius: 6px;
+            padding: 12px 15px;
+            font-size: 14px;
+            color: #34495e;
+            flex-basis: calc(50% - 20px);
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+        }
+        .activity:hover {
+            background-color: #edf2f7;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        .activity-icon {
+            color: #3498db;
+            margin-right: 10px;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        .legend {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            border-top: 1px solid #e9ecef;
+            padding-top: 20px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 0 15px;
             font-size: 13px;
-            flex-grow: 1;
-            min-width: 200px;
+            color: #7b8a8b;
         }
-        .arrow {
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            margin-right: 8px;
+            border-radius: 3px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 12px;
+            color: #95a5a6;
+        }
+        .milestone-markers {
             position: absolute;
-            left: 25px;
-            bottom: -30px;
-            height: 30px;
-            width: 3px;
-            background-color: #3498db;
+            top: 0;
+            right: 0;
+            width: 180px;
+            height: 100%;
+            z-index: 0;
         }
-        .arrow::after {
+        .milestone {
+            position: absolute;
+            right: 0;
+            display: flex;
+            align-items: center;
+        }
+        .milestone-line {
+            flex-grow: 1;
+            height: 2px;
+            background-color: #e74c3c;
+            position: relative;
+        }
+        .milestone-line::before {
             content: "";
             position: absolute;
-            bottom: -5px;
+            width: 8px;
+            height: 8px;
+            background-color: #e74c3c;
+            border-radius: 50%;
+            left: 0;
+            top: -3px;
+        }
+        .milestone-info {
+            padding: 8px 12px;
+            background-color: #e74c3c;
+            color: white;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+            box-shadow: 0 2px 5px rgba(231, 76, 60, 0.3);
+        }
+        .vertical-timeline {
+            position: absolute;
+            top: 0;
+            right: 240px;
+            height: 100%;
+            width: 2px;
+            background-color: #e1e8ed;
+        }
+        .vertical-timeline::before,
+        .vertical-timeline::after {
+            content: "";
+            position: absolute;
             left: -4px;
-            width: 0;
-            height: 0;
-            border-left: 5px solid transparent;
-            border-right: 5px solid transparent;
-            border-top: 8px solid #3498db;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #e1e8ed;
+        }
+        .vertical-timeline::before {
+            top: 0;
+        }
+        .vertical-timeline::after {
+            bottom: 0;
+        }
+        .month-marker {
+            position: absolute;
+            right: 240px;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: #95a5a6;
+            width: 60px;
+            text-align: center;
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
-        <div class="title">Student Mental Health Sentiment Analysis Methodology Flowchart (CRISP-DM)</div>
+        <div class="header">
+            <div class="title">Student Mental Health Sentiment Analysis</div>
+            <div class="subtitle">Comprehensive Methodology Flowchart</div>
+        </div>
+        
+        <div class="methodology-desc">
+            <strong>CRISP-DM Framework:</strong> Cross-Industry Standard Process for Data Mining provides a structured approach to this sentiment analysis project, 
+            enabling systematic planning, implementation, and evaluation of mental health text analytics.
+        </div>
         
         <div class="flowchart">
-            <!-- Phase 1: Business Understanding -->
-            <div class="phase">
-                <div class="phase-number">1</div>
-                <div class="phase-content">
-                    <div class="phase-title">Business Understanding</div>
-                    <div class="phase-duration">Duration: 2 weeks</div>
-                    <div class="phase-activities">
-                        <div class="activity">Define success criteria (≥80% accuracy)</div>
-                        <div class="activity">Identify stakeholder requirements</div>
-                        <div class="activity">Address privacy & security constraints</div>
-                        <div class="activity">Set performance metrics for high-risk detection</div>
-                    </div>
+            <div class="vertical-timeline"></div>
+            
+            <!-- Month markers -->
+            <div class="month-marker" style="top: 60px;">Month 1</div>
+            <div class="month-marker" style="top: 180px;">Month 2</div>
+            <div class="month-marker" style="top: 300px;">Month 3</div>
+            <div class="month-marker" style="top: 420px;">Month 4</div>
+            <div class="month-marker" style="top: 540px;">Month 5</div>
+            <div class="month-marker" style="top: 660px;">Month 6</div>
+            
+            <!-- Milestone markers -->
+            <div class="milestone-markers">
+                <div class="milestone" style="top: 160px;">
+                    <div class="milestone-line"></div>
+                    <div class="milestone-info">M1: Requirements</div>
                 </div>
-                <div class="arrow"></div>
+                <div class="milestone" style="top: 350px;">
+                    <div class="milestone-line"></div>
+                    <div class="milestone-info">M2: Processing & Modeling</div>
+                </div>
+                <div class="milestone" style="top: 540px;">
+                    <div class="milestone-line"></div>
+                    <div class="milestone-info">M3: Evaluation & Prototype</div>
+                </div>
+                <div class="milestone" style="top: 700px;">
+                    <div class="milestone-line"></div>
+                    <div class="milestone-info">M4: Final Deliverables</div>
+                </div>
             </div>
             
-            <!-- Phase 2: Data Understanding -->
-            <div class="phase">
-                <div class="phase-number">2</div>
-                <div class="phase-content">
-                    <div class="phase-title">Data Understanding</div>
-                    <div class="phase-duration">Duration: 3 weeks</div>
-                    <div class="phase-activities">
-                        <div class="activity">Collect 5,000+ anonymized dialogues</div>
-                        <div class="activity">Conduct exploratory sentiment analysis</div>
-                        <div class="activity">Identify common themes (academic stress, etc.)</div>
-                        <div class="activity">Assess data quality & representativeness</div>
+            <div class="phases-container">
+                <!-- Phase 1: Business Understanding -->
+                <div class="phase">
+                    <div class="phase-number-container">
+                        <div class="phase-number">1</div>
+                        <div class="phase-connector"></div>
+                    </div>
+                    <div class="phase-content">
+                        <div class="phase-header">
+                            <div class="phase-title">
+                                <span class="phase-icon"><i class="fas fa-briefcase"></i></span>
+                                Business Understanding
+                            </div>
+                            <div class="phase-duration">
+                                <span class="duration-icon"><i class="far fa-clock"></i></span>
+                                2 weeks
+                            </div>
+                        </div>
+                        <div class="phase-activities">
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-bullseye"></i></span>
+                                Define success criteria (≥80% accuracy)
+                            </div>
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-users"></i></span>
+                                Identify stakeholder requirements
+                            </div>
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-shield-alt"></i></span>
+                                Address privacy & security constraints
+                            </div>
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-chart-line"></i></span>
+                                Set performance metrics for high-risk detection
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="arrow"></div>
-            </div>
-            
-            <!-- Phase 3: Data Preparation -->
-            <div class="phase">
-                <div class="phase-number">3</div>
-                <div class="phase-content">
-                    <div class="phase-title">Data Preparation</div>
-                    <div class="phase-duration">Duration: 4 weeks</div>
-                    <div class="phase-activities">
-                        <div class="activity">Text cleaning (lowercasing, stopword removal)</div>
-                        <div class="activity">Feature engineering (TF-IDF, sentiment scores)</div>
-                        <div class="activity">Statistical feature extraction (lexical diversity)</div>
-                        <div class="activity">Class balancing (SMOTE for minority class)</div>
+                
+                <!-- Phase 2: Data Understanding -->
+                <div class="phase">
+                    <div class="phase-number-container">
+                        <div class="phase-number">2</div>
+                        <div class="phase-connector"></div>
+                    </div>
+                    <div class="phase-content">
+                        <div class="phase-header">
+                            <div class="phase-title">
+                                <span class="phase-icon"><i class="fas fa-database"></i></span>
+                                Data Understanding
+                            </div>
+                            <div class="phase-duration">
+                                <span class="duration-icon"><i class="far fa-clock"></i></span>
+                                3 weeks
+                            </div>
+                        </div>
+                        <div class="phase-activities">
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-file-alt"></i></span>
+                                Collect 5,000+ anonymized dialogues
+                            </div>
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-search"></i></span>
+                                Conduct exploratory sentiment analysis
+                            </div>
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-tags"></i></span>
+                                Identify common themes (academic stress, etc.)
+                            </div>
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-check-circle"></i></span>
+                                Assess data quality & representativeness
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="arrow"></div>
-            </div>
-            
-            <!-- Phase 4: Modeling -->
-            <div class="phase">
-                <div class="phase-number">4</div>
-                <div class="phase-content">
-                    <div class="phase-title">Modeling</div>
-                    <div class="phase-duration">Duration: 6 weeks</div>
-                    <div class="phase-activities">
-                        <div class="activity">Baseline models (Lexicon-based: VADER, TextBlob)</div>
-                        <div class="activity">Machine learning models (LR, SVM, RF, XGBoost)</div>
-                        <div class="activity">Deep learning models (fine-tuned BERT/RoBERTa)</div>
-                        <div class="activity">Ensemble methods for robust predictions</div>
-                        <div class="activity">Feature selection to prioritize key predictors</div>
+                
+                <!-- Phase 3: Data Preparation -->
+                <div class="phase">
+                    <div class="phase-number-container">
+                        <div class="phase-number">3</div>
+                        <div class="phase-connector"></div>
+                    </div>
+                    <div class="phase-content">
+                        <div class="phase-header">
+                            <div class="phase-title">
+                                <span class="phase-icon"><i class="fas fa-broom"></i></span>
+                                Data Preparation
+                            </div>
+                            <div class="phase-duration">
+                                <span class="duration-icon"><i class="far fa-clock"></i></span>
+                                4 weeks
+                            </div>
+                        </div>
+                        <div class="phase-activities">
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-font"></i></span>
+                                Text cleaning (lowercasing, stopword removal)
+                            </div>
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-cogs"></i></span>
+                                Feature engineering (TF-IDF, sentiment scores)
+                            </div>
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-calculator"></i></span>
+                                Statistical feature extraction (lexical diversity)
+                            </div>
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-balance-scale"></i></span>
+                                Class balancing (SMOTE for minority class)
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="arrow"></div>
-            </div>
-            
-            <!-- Phase 5: Evaluation -->
-            <div class="phase">
-                <div class="phase-number">5</div>
-                <div class="phase-content">
-                    <div class="phase-title">Evaluation</div>
-                    <div class="phase-duration">Duration: 3 weeks</div>
-                    <div class="phase-activities">
-                        <div class="activity">Performance metrics (F1-score, focus on negative-class recall)</div>
-                        <div class="activity">Cross-validation to assess generalizability</div>
-                        <div class="activity">Expert review of misclassifications</div>
-                        <div class="activity">Model comparison and selection</div>
+                
+                <!-- Phase 4: Modeling -->
+                <div class="phase">
+                    <div class="phase-number-container">
+                        <div class="phase-number">4</div>
+                        <div class="phase-connector"></div>
+                    </div>
+                    <div class="phase-content">
+                        <div class="phase-header">
+                            <div class="phase-title">
+                                <span class="phase-icon"><i class="fas fa-brain"></i></span>
+                                Modeling
+                            </div>
+                            <div class="phase-duration">
+                                <span class="duration-icon"><i class="far fa-clock"></i></span>
+                                6 weeks
+                            </div>
+                        </div>
+                        <div class="phase-activities">
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-book"></i></span>
+                                Baseline models (Lexicon-based: VADER, TextBlob)
+                            </div>
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-robot"></i></span>
+                                Machine learning models (LR, SVM, RF, XGBoost)
+                            </div>
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-microchip"></i></span>
+                                Deep learning models (fine-tuned BERT/RoBERTa)
+                            </div>
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-network-wired"></i></span>
+                                Ensemble methods for robust predictions
+                            </div>
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-filter"></i></span>
+                                Feature selection to prioritize key predictors
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="arrow"></div>
-            </div>
-            
-            <!-- Phase 6: Deployment -->
-            <div class="phase">
-                <div class="phase-number">6</div>
-                <div class="phase-content">
-                    <div class="phase-title">Deployment</div>
-                    <div class="phase-duration">Duration: 4 weeks</div>
-                    <div class="phase-activities">
-                        <div class="activity">Web app prototype for real-time analysis</div>
-                        <div class="activity">Interactive dashboard for sentiment visualization</div>
-                        <div class="activity">Alert system for high-risk cases</div>
-                        <div class="activity">Integration into counseling workflow</div>
+                
+                <!-- Phase 5: Evaluation -->
+                <div class="phase">
+                    <div class="phase-number-container">
+                        <div class="phase-number">5</div>
+                        <div class="phase-connector"></div>
+                    </div>
+                    <div class="phase-content">
+                        <div class="phase-header">
+                            <div class="phase-title">
+                                <span class="phase-icon"><i class="fas fa-clipboard-check"></i></span>
+                                Evaluation
+                            </div>
+                            <div class="phase-duration">
+                                <span class="duration-icon"><i class="far fa-clock"></i></span>
+                                3 weeks
+                            </div>
+                        </div>
+                        <div class="phase-activities">
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-chart-pie"></i></span>
+                                Performance metrics (F1-score, negative-class recall)
+                            </div>
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-sync-alt"></i></span>
+                                Cross-validation to assess generalizability
+                            </div>
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-user-md"></i></span>
+                                Expert review of misclassifications
+                            </div>
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-tasks"></i></span>
+                                Model comparison and selection
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="arrow"></div>
-            </div>
-            
-            <!-- Phase 7: Reporting -->
-            <div class="phase">
-                <div class="phase-number">7</div>
-                <div class="phase-content">
-                    <div class="phase-title">Reporting and Dissemination</div>
-                    <div class="phase-duration">Duration: 2 weeks</div>
-                    <div class="phase-activities">
-                        <div class="activity">Technical report with methodology & findings</div>
-                        <div class="activity">Academic manuscript preparation</div>
-                        <div class="activity">Stakeholder workshop & knowledge transfer</div>
-                        <div class="activity">Future research recommendations</div>
+                
+                <!-- Phase 6: Deployment -->
+                <div class="phase">
+                    <div class="phase-number-container">
+                        <div class="phase-number">6</div>
+                        <div class="phase-connector"></div>
+                    </div>
+                    <div class="phase-content">
+                        <div class="phase-header">
+                            <div class="phase-title">
+                                <span class="phase-icon"><i class="fas fa-rocket"></i></span>
+                                Deployment
+                            </div>
+                            <div class="phase-duration">
+                                <span class="duration-icon"><i class="far fa-clock"></i></span>
+                                4 weeks
+                            </div>
+                        </div>
+                        <div class="phase-activities">
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-window-restore"></i></span>
+                                Web app prototype for real-time analysis
+                            </div>
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-chart-bar"></i></span>
+                                Interactive dashboard for sentiment visualization
+                            </div>
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-bell"></i></span>
+                                Alert system for high-risk cases
+                            </div>
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-puzzle-piece"></i></span>
+                                Integration into counseling workflow
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Phase 7: Reporting -->
+                <div class="phase">
+                    <div class="phase-number-container">
+                        <div class="phase-number">7</div>
+                    </div>
+                    <div class="phase-content">
+                        <div class="phase-header">
+                            <div class="phase-title">
+                                <span class="phase-icon"><i class="fas fa-file-contract"></i></span>
+                                Reporting and Dissemination
+                            </div>
+                            <div class="phase-duration">
+                                <span class="duration-icon"><i class="far fa-clock"></i></span>
+                                2 weeks
+                            </div>
+                        </div>
+                        <div class="phase-activities">
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-file-alt"></i></span>
+                                Technical report with methodology & findings
+                            </div>
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-book"></i></span>
+                                Academic manuscript preparation
+                            </div>
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-chalkboard-teacher"></i></span>
+                                Stakeholder workshop & knowledge transfer
+                            </div>
+                            <div class="activity">
+                                <span class="activity-icon"><i class="fas fa-lightbulb"></i></span>
+                                Future research recommendations
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+        
+        <div class="footer">
+            Student Mental Health Sentiment Analysis Project • CRISP-DM Framework • University Research Initiative
         </div>
     </div>
 </body>
