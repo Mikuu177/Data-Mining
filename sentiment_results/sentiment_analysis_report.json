@@ -1,0 +1,16 @@
+{
+    "total_samples": 449,
+    "textblob_stats": {
+        "positive": 226,
+        "neutral": 136,
+        "negative": 87
+    },
+    "ml_model": {
+        "accuracy": 0.6148148148148148,
+        "classification_report": "              precision    recall  f1-score   support\n\n    negative       0.25      0.14      0.18        21\n     neutral       0.48      0.32      0.38        41\n    positive       0.70      0.92      0.79        73\n\n    accuracy                           0.61       135\n   macro avg       0.48      0.46      0.45       135\nweighted avg       0.56      0.61      0.57       135\n"
+    },
+    "examples": {
+        "most_positive_textblob": "I haven't thought of that yet. But now when it comes to seeing a colleague seems approachable. I think it would be helpful to share with them what I had experienced and its impact on my work.",
+        "most_negative_textblob": "It's just that, I have put a lot of hope in this job, and now I'm here, I feel I can't match. I feel like I disappointed people."
+    }
+}
