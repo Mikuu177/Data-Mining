@@ -6,35 +6,34 @@
     <title>Sentiment Analysis System Architecture</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f8f9fa;
-            color: #333;
+            background-color: white;
+            color: #000;
         }
         .container {
             width: 1000px;
             margin: 0 auto;
             background-color: white;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
             padding: 30px;
         }
         .header {
             text-align: center;
             margin-bottom: 40px;
-            border-bottom: 1px solid #e9ecef;
+            border-bottom: 1px solid #ddd;
             padding-bottom: 20px;
         }
         .title {
-            font-size: 28px;
-            font-weight: 600;
-            color: #2c3e50;
+            font-size: 24px;
+            font-weight: bold;
             margin-bottom: 10px;
         }
         .subtitle {
             font-size: 16px;
-            color: #7b8a8b;
+            color: #333;
             margin-bottom: 20px;
         }
         .architecture {
@@ -47,7 +46,7 @@
             display: flex;
             width: 100%;
             justify-content: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
             position: relative;
             z-index: 1;
         }
@@ -56,60 +55,36 @@
             left: 0;
             top: 50%;
             transform: translateY(-50%);
-            font-weight: 600;
-            color: #34495e;
-            background-color: #f8f9fa;
-            padding: 8px 10px;
-            border-radius: 4px;
-            border-left: 4px solid #3498db;
+            font-weight: bold;
+            background-color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            border-left: 3px solid #000;
             font-size: 14px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
         .module {
-            border: 1px solid #e9ecef;
-            border-radius: 8px;
-            padding: 20px 15px;
+            border: 1px solid #000;
+            border-radius: 5px;
+            padding: 15px;
             margin: 0 15px;
             background-color: white;
             text-align: center;
             width: 200px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        .module:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 7px 15px rgba(0, 0, 0, 0.1);
-        }
-        .data-module {
-            border-top: 5px solid #e74c3c;
-        }
-        .processing-module {
-            border-top: 5px solid #2ecc71;
-        }
-        .model-module {
-            border-top: 5px solid #9b59b6;
-        }
-        .output-module {
-            border-top: 5px solid #f39c12;
-        }
-        .deploy-module {
-            border-top: 5px solid #34495e;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         }
         .icon {
-            font-size: 24px;
-            margin-bottom: 15px;
-            color: #3498db;
+            font-size: 20px;
+            margin-bottom: 10px;
         }
         .module-title {
-            font-weight: 600;
-            margin-bottom: 12px;
-            font-size: 16px;
-            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 15px;
         }
         .module-desc {
-            font-size: 13px;
-            color: #7b8a8b;
+            font-size: 12px;
+            color: #333;
             line-height: 1.5;
         }
         .connection-container {
@@ -123,8 +98,8 @@
         }
         .connection {
             position: absolute;
-            height: 2px;
-            background-color: #cbd5e0;
+            height: 1px;
+            background-color: #000;
             transform-origin: 0 0;
             z-index: 0;
         }
@@ -132,38 +107,20 @@
             content: '';
             position: absolute;
             right: 0;
-            top: -4px;
+            top: -3px;
             width: 0;
             height: 0;
-            border-left: 8px solid #cbd5e0;
-            border-top: 5px solid transparent;
-            border-bottom: 5px solid transparent;
-        }
-        .legend {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-            border-top: 1px solid #e9ecef;
-            padding-top: 20px;
-        }
-        .legend-item {
-            display: flex;
-            align-items: center;
-            margin: 0 15px;
-            font-size: 13px;
-            color: #7b8a8b;
-        }
-        .legend-color {
-            width: 15px;
-            height: 15px;
-            margin-right: 8px;
-            border-radius: 3px;
+            border-left: 6px solid #000;
+            border-top: 3px solid transparent;
+            border-bottom: 3px solid transparent;
         }
         .footer {
             text-align: center;
             margin-top: 30px;
             font-size: 12px;
-            color: #95a5a6;
+            color: #333;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -172,19 +129,19 @@
     <div class="container">
         <div class="header">
             <div class="title">Student Mental Health Sentiment Analysis</div>
-            <div class="subtitle">Comprehensive System Architecture for Mental Health Monitoring and Support</div>
+            <div class="subtitle">System Architecture</div>
         </div>
         
         <div class="architecture">
             <!-- Data Layer -->
             <div class="layer">
                 <div class="layer-label">Data Layer</div>
-                <div class="module data-module">
+                <div class="module">
                     <div class="icon"><i class="fas fa-database"></i></div>
                     <div class="module-title">Data Sources</div>
                     <div class="module-desc">Counseling Transcripts<br>Student Diaries<br>Forum Posts<br>Online Interactions</div>
                 </div>
-                <div class="module data-module">
+                <div class="module">
                     <div class="icon"><i class="fas fa-shield-alt"></i></div>
                     <div class="module-title">Data Collection</div>
                     <div class="module-desc">GDPR Compliance<br>Anonymization<br>Secure Aggregation<br>5,000+ Dialogues</div>
@@ -194,12 +151,12 @@
             <!-- Processing Layer -->
             <div class="layer">
                 <div class="layer-label">Processing Layer</div>
-                <div class="module processing-module">
+                <div class="module">
                     <div class="icon"><i class="fas fa-broom"></i></div>
                     <div class="module-title">Text Preprocessing</div>
                     <div class="module-desc">Noise Removal<br>Tokenization<br>Lemmatization<br>POS Tagging</div>
                 </div>
-                <div class="module processing-module">
+                <div class="module">
                     <div class="icon"><i class="fas fa-cogs"></i></div>
                     <div class="module-title">Feature Engineering</div>
                     <div class="module-desc">TF-IDF Vectorization<br>Sentiment Scores<br>Statistical Features<br>Linguistic Markers</div>
@@ -209,17 +166,17 @@
             <!-- Model Layer -->
             <div class="layer">
                 <div class="layer-label">Model Layer</div>
-                <div class="module model-module">
+                <div class="module">
                     <div class="icon"><i class="fas fa-chart-bar"></i></div>
                     <div class="module-title">Baseline Models</div>
                     <div class="module-desc">VADER Lexicon<br>TextBlob Analysis<br>LIWC Dictionary<br>Rule-based Systems</div>
                 </div>
-                <div class="module model-module">
+                <div class="module">
                     <div class="icon"><i class="fas fa-brain"></i></div>
                     <div class="module-title">ML Models</div>
                     <div class="module-desc">Logistic Regression<br>Random Forest<br>XGBoost<br>Support Vector Machines</div>
                 </div>
-                <div class="module model-module">
+                <div class="module">
                     <div class="icon"><i class="fas fa-microchip"></i></div>
                     <div class="module-title">Advanced Models</div>
                     <div class="module-desc">BERT Fine-tuning<br>RoBERTa<br>Model Ensembles<br>Transfer Learning</div>
@@ -229,12 +186,12 @@
             <!-- Output Layer -->
             <div class="layer">
                 <div class="layer-label">Output Layer</div>
-                <div class="module output-module">
+                <div class="module">
                     <div class="icon"><i class="fas fa-chart-line"></i></div>
                     <div class="module-title">Analysis Dashboard</div>
                     <div class="module-desc">Sentiment Trends<br>Key Topics & Phrases<br>Temporal Analysis<br>Topic Distribution</div>
                 </div>
-                <div class="module output-module">
+                <div class="module">
                     <div class="icon"><i class="fas fa-bell"></i></div>
                     <div class="module-title">Alert System</div>
                     <div class="module-desc">Risk Scoring<br>Severity Classification<br>Counselor Notifications<br>Priority Handling</div>
@@ -244,7 +201,7 @@
             <!-- Deployment Layer -->
             <div class="layer">
                 <div class="layer-label">Deployment Layer</div>
-                <div class="module deploy-module" style="width: 450px;">
+                <div class="module" style="width: 450px;">
                     <div class="icon"><i class="fas fa-rocket"></i></div>
                     <div class="module-title">Deployment & Integration</div>
                     <div class="module-desc">Secure Web Application<br>Counseling Center Integration<br>Continuous Feedback Loop & Improvement<br>Privacy-preserving API & Service Interface</div>
@@ -253,29 +210,6 @@
             
             <!-- Connection lines drawn with JS -->
             <div class="connection-container" id="connections"></div>
-        </div>
-        
-        <div class="legend">
-            <div class="legend-item">
-                <div class="legend-color" style="background-color: #e74c3c;"></div>
-                <span>Data Layer</span>
-            </div>
-            <div class="legend-item">
-                <div class="legend-color" style="background-color: #2ecc71;"></div>
-                <span>Processing Layer</span>
-            </div>
-            <div class="legend-item">
-                <div class="legend-color" style="background-color: #9b59b6;"></div>
-                <span>Model Layer</span>
-            </div>
-            <div class="legend-item">
-                <div class="legend-color" style="background-color: #f39c12;"></div>
-                <span>Output Layer</span>
-            </div>
-            <div class="legend-item">
-                <div class="legend-color" style="background-color: #34495e;"></div>
-                <span>Deployment Layer</span>
-            </div>
         </div>
         
         <div class="footer">
